@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-const RESET_VALUES = {id: '', category: '', price: '', name: '', instock: false}
+//adding dummy values for testing
+const RESET_VALUES = {id: '', category: 'cat', price: '10', name: 'dummy', instock: false}
 
 class ProductForm extends Component {
     constructor(props) {

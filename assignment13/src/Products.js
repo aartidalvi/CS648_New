@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Filters from './Filters'
 import ProductTable from './ProductTable'
 import ProductForm from './ProductForm'
+import $ from 'jquery'
+
+const postURL = 'http://localhost:5000/product/create/';
 
 let PRODUCTS = {
     '1': {id: 1, category: 'Music', price: '$459.99', name: 'Clarinet', instock: true},
@@ -28,15 +31,26 @@ class Products extends Component {
         this.setState(filterInput)
     }
 
+    //function to send the post request to create new product.
+    postReq(product) {
+        $.ajax({
+            type: 'POST',
+            url: postURL,
+            data: product
+          }).then(() => {
+            this.setState((prevState) => {
+                let products = prevState.products
+                products[product.id] = product
+                return { products }
+            })
+          })
+    }
+
     handleSave(product) {
         if (!product.id) {
             product.id = new Date().getTime()
         }
-        this.setState((prevState) => {
-            let products = prevState.products
-            products[product.id] = product
-            return { products }
-        })
+        return this.postReq(product)
     }
 
     handleDestroy(productId) {

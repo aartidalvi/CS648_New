@@ -3,11 +3,65 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 
+//Reference: https://nodejs.dev/get-http-request-body-data-using-nodejs
+app.use(
+    bodyParser.urlencoded({
+      extended: true
+    })
+)
+
+app.use(bodyParser.json()) //to parse the request body.
+
+//Reference: https://www.digitalocean.com/community/questions/blocked-by-cors-policy-the-access-control-allow-origin-mean-stack
+app.use(function (req, res, next) {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');  
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+    // Pass to next layer of middleware
+    next();
+  });
+
 const port = 5000;
 
 const mongoDBpath = 'mongodb+srv://aartidalvi:mongodbpwd@cluster0-ne0fo.mongodb.net/test?retryWrites=true&w=majority';
 
-mongoose.connect (mongoDBpath, { useUnifiedTopology: true , useNewUrlParser: true } ,(error) => {
+//Referred to the problem statement to decide the datatype of each field.
+var Datamodel = mongoose.model('datamodel', {
+    productid: Number,
+    category: String,
+    price: Number,
+    name: String,
+    instock: Boolean
+} )
+
+app.post('/product/create', (request, response) => {
+    // console.log(request.body);
+    var data = new Datamodel({productid: request.body.id,
+        category: request.body.category,
+        price: request.body.price,
+        name: request.body.name,
+        instock: request.body.instock});
+
+    data.save((error) => {
+        if (error) {
+            console.log('Error is:' + error);
+            response.sendStatus(500);
+        }
+        else {
+            response.sendStatus(200);
+        }
+    })
+
+    // console.log(data);
+
+})
+
+mongoose.connect (mongoDBpath, { 
+    useUnifiedTopology: true , 
+    useNewUrlParser: true } ,(error) => {
     console.log("Error connecting to the databse: " + error);
 })
 
