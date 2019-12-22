@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const RESET_VALUES = {id: '', category: '', price: '', name: ''}
+const RESET_VALUES = {id: '', category: '', price: '', name: '', instock: false}
 
 class ProductForm extends Component {
     constructor(props) {
@@ -50,6 +50,10 @@ class ProductForm extends Component {
                 <p>
                     <label>Price <br /> 
                     <input type="text" class="form-control" name="price" onChange={this.handleChange} value={this.state.product.price} /></label>
+                </p>
+                <p>
+                    <label>In Stock <br /> 
+                    <input type="text" class="form-control" name="instock" onChange={this.handleChange} value={this.state.product.instock} /></label>
                 </p>
                 <input type="submit" class="btn btn-info" value="Save" onClick={this.handleSave}></input>
             </form>
