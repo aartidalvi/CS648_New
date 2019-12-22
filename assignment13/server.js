@@ -37,6 +37,16 @@ var Datamodel = mongoose.model('datamodel', {
     instock: Boolean
 } )
 
+app.get('/product/get', (request,response) => {
+    Datamodel.find( {}, (error, productlist) => {
+        if(error) {
+            console.log('Error while getting the data:' + error);
+        } else {
+            response.send(productlist);
+        }
+    })
+})
+
 app.post('/product/create', (request, response) => {
     // console.log(request.body);
     var data = new Datamodel({productid: request.body.id,

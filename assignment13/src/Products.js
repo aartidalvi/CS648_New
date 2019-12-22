@@ -5,15 +5,9 @@ import ProductForm from './ProductForm'
 import $ from 'jquery'
 
 const postURL = 'http://localhost:5000/product/create/';
+const getURL = 'http://localhost:5000/product/get/';
 
-let PRODUCTS = {
-    '1': {id: 1, category: 'Music', price: '$459.99', name: 'Clarinet', instock: true},
-    '2': {id: 2, category: 'Music', price: '$5,000', name: 'Cello', instock: true},
-    '3': {id: 3, category: 'Music', price: '$3,500', name: 'Tuba', instock: false},
-    '4': {id: 4, category: 'Furniture', price: '$799', name: 'Chaise Lounge', instock: true},
-    '5': {id: 5, category: 'Furniture', price: '$1,300', name: 'Dining Table', instock: true},
-    '6': {id: 6, category: 'Furniture', price: '$100', name: 'Bean Bag', instock: false}
-};
+let PRODUCTS = {};
 
 class Products extends Component {
     constructor(props) {
@@ -31,19 +25,46 @@ class Products extends Component {
         this.setState(filterInput)
     }
 
+    //Reference: https://reactjs.org/docs/react-component.html
+    componentDidMount() {
+        var temp = {};
+        $.ajax({
+            type: 'GET',
+            url: getURL,
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+              console.log(data);
+              temp = data;
+            }
+           }).then(() => {
+                console.log('temp is:' + temp);
+                this.setState({products:temp}); 
+           })
+    }
+
     //function to send the post request to create new product.
     postReq(product) {
+        var temp = {};
         $.ajax({
             type: 'POST',
             url: postURL,
             data: product
           }).then(() => {
-            this.setState((prevState) => {
-                let products = prevState.products
-                products[product.id] = product
-                return { products }
-            })
-          })
+            $.ajax({
+                type: 'GET',
+                url: getURL,
+                dataType: 'json',
+                async: false,
+                success: function (data) {
+                  console.log(data);
+                  temp = data;
+                }
+               })
+          }).then(() => {
+            console.log('temp is:' + temp);
+          this.setState({products:temp}); 
+        })
     }
 
     handleSave(product) {
