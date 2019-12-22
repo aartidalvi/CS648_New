@@ -5,12 +5,17 @@ class ProductTable extends Component {
     constructor(props) {
         super(props)
         this.handleDestroy = this.handleDestroy.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
     }
 
     handleDestroy(id) {
         this.props.onDestroy(id)
     }
     
+    handleUpdate(id) {
+        this.props.onUpdate(id)
+    }
+
     render () {
         let productsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid])
         let rows = []
@@ -23,7 +28,8 @@ class ProductTable extends Component {
                 <ProductRow 
                     product={product} 
                     key={product.productid} 
-                    onDestroy={this.handleDestroy}></ProductRow>
+                    onDestroy={this.handleDestroy}
+                    onUpdate={this.handleUpdate}></ProductRow>
             )
         })
 

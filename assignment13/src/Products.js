@@ -7,6 +7,7 @@ import $ from 'jquery'
 const postURL = 'http://localhost:5000/product/create/';
 const getURL = 'http://localhost:5000/product/get/';
 const deleteURL = 'http://localhost:5000/product/delete/';
+const updateURL = 'http://localhost:5000/product/update/';
 
 let PRODUCTS = {};
 
@@ -19,6 +20,7 @@ class Products extends Component {
         }
         this.handleFilter = this.handleFilter.bind(this)
         this.handleDestroy = this.handleDestroy.bind(this)
+        this.handleUpdate = this.handleUpdate.bind(this)
         this.handleSave = this.handleSave.bind(this)
     }
 
@@ -90,6 +92,18 @@ class Products extends Component {
           })
     }
 
+    handleUpdate(productid){
+        console.log('Prod ID to be updated: '+ productid);
+
+        $.ajax({
+            type: 'PUT',
+            url: updateURL + productid,
+            async: false
+          }).then(() => {
+            this.getReq()
+          })
+    }
+
     render () {
         return (
             <div>
@@ -99,7 +113,8 @@ class Products extends Component {
                 <ProductTable 
                     products={this.state.products}
                     filterText={this.state.filterText}
-                    onDestroy={this.handleDestroy}></ProductTable>
+                    onDestroy={this.handleDestroy}
+                    onUpdate={this.handleUpdate}></ProductTable>
                 <ProductForm
                     onSave={this.handleSave}></ProductForm>
             </div>

@@ -62,6 +62,21 @@ app.delete('/product/delete/:productid', (request, response) => {
     })
   })
 
+  
+//The code will toggle the instock of the product.
+app.put('/product/update/:productid', (request, response) => {
+    
+    console.log('Product to be updated server:' + request.params.productid);
+
+    var found = Datamodel.findOne({ productid: request.params.productid },function(err,obj) {
+        console.log('found one') 
+        console.log(obj);      
+        obj.instock = !obj.instock; //toggle the value of instock
+        obj.save();
+        response.sendStatus(200);
+        })
+})
+
 app.post('/product/create', (request, response) => {
     // console.log(request.body);
     var data = new Datamodel({productid: request.body.productid,
