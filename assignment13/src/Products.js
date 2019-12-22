@@ -6,6 +6,7 @@ import $ from 'jquery'
 
 const postURL = 'http://localhost:5000/product/create/';
 const getURL = 'http://localhost:5000/product/get/';
+const deleteURL = 'http://localhost:5000/product/delete/';
 
 let PRODUCTS = {};
 
@@ -27,6 +28,10 @@ class Products extends Component {
 
     //Reference: https://reactjs.org/docs/react-component.html
     componentDidMount() {
+        this.getReq();
+    }
+
+    getReq() {
         var temp = {};
         $.ajax({
             type: 'GET',
@@ -42,7 +47,7 @@ class Products extends Component {
                 this.setState({products:temp}); 
            })
     }
-
+    
     //function to send the post request to create new product.
     postReq(product) {
         var temp = {};
@@ -68,18 +73,21 @@ class Products extends Component {
     }
 
     handleSave(product) {
-        if (!product.id) {
-            product.id = new Date().getTime()
+        if (!product.productid) {
+            product.productid = new Date().getTime()
         }
         return this.postReq(product)
     }
 
-    handleDestroy(productId) {
-        this.setState((prevState) => {
-            let products = prevState.products
-            delete products[productId]
-            return { products }
-        });
+    handleDestroy(productid){
+        console.log('Prod ID to be deleted: '+ productid);
+
+        $.ajax({
+            type: 'DELETE',
+            url: deleteURL + productid
+          }).then(() => {
+            this.getReq()
+          })
     }
 
     render () {

@@ -22,7 +22,7 @@ class ProductTable extends Component {
             rows.push (
                 <ProductRow 
                     product={product} 
-                    key={product.id} 
+                    key={product.productid} 
                     onDestroy={this.handleDestroy}></ProductRow>
             )
         })

@@ -7,7 +7,7 @@ class ProductRow extends Component {
     }
 
     destroy() {
-        this.props.onDestroy(this.props.product.id);
+        this.props.onDestroy(this.props.product.productid);
     }
 
     render () {

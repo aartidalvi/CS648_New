@@ -47,9 +47,24 @@ app.get('/product/get', (request,response) => {
     })
 })
 
+app.delete('/product/delete/:productid', (request, response) => {
+    
+    console.log('Product to be deleted:' + request.params.productid);
+
+    Datamodel.deleteOne({ productid: request.params.productid }, error => {
+      if (error) {
+          console.log('Error while deleting product: ', error)
+          response.sendStatus(500);
+      }
+      else {
+        response.sendStatus(200)
+      }
+    })
+  })
+
 app.post('/product/create', (request, response) => {
     // console.log(request.body);
-    var data = new Datamodel({productid: request.body.id,
+    var data = new Datamodel({productid: request.body.productid,
         category: request.body.category,
         price: request.body.price,
         name: request.body.name,
