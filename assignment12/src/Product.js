@@ -5,33 +5,34 @@ import ProductFilters from './ProductFilters';
 import ProductTable from './ProductTable';
 import ProductForm from './ProductForm';
 
-function Product() {
-  return (
-    <div className="Product-Align">    
-        <hr></hr>
+class Product extends React.Component {
+  render() {
+    return (
+      <div className="Product-Align">    
+          <hr></hr>
 
-        <h1>My Inventory (Client)</h1>
+          <h1>My Inventory (Client)</h1>
 
-        <hr></hr>
+          <hr></hr>
 
-        <div className="ProductFilterDiv">
-        <ProductFilters></ProductFilters>
-        </div>
+          <div className="ProductFilterDiv">
+          <ProductFilters></ProductFilters>
+          </div>
 
-        <hr></hr>
-        
-        <div className="ProductTableDiv">
-        <ProductTable></ProductTable>
-        </div>
+          <hr></hr>
+          
+          <div className="ProductTableDiv">
+          <ProductTable></ProductTable>
+          </div>
 
-        <hr></hr>
+          <hr></hr>
 
-        <div className="ProductFormDiv">
-        <ProductForm></ProductForm>
-        </div>
-    </div>
-    
-  );
+          <div className="ProductFormDiv">
+          <ProductForm></ProductForm>
+          </div>
+      </div>
+    );
+  }
 }
 
 export default Product;
