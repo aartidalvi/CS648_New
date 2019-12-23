@@ -13,6 +13,17 @@
   }
 }
 
+/* the css properties for Product~.js*/
+table, th, td {
+  border: 2px solid blue;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.Product-Align {
+  text-align: left;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
