@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-class ProductFilters extends React.Component {
+class ProductFilters extends Component {
   constructor(props) {
     super(props)
   }

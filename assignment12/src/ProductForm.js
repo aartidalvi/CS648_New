@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-class ProductForm extends React.Component {
+class ProductForm extends Component {
   constructor(props) {
     super(props)
   }

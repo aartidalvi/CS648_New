@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-class ProductRow extends React.Component {
+class ProductRow extends Component {
   
   constructor(props) {
     super(props)
   }
 
-  
+
   render() {
+    //Reference Module 12, Lecture 11
+    const {id, name, category, price} = this.props.product;
     return (
           <tr>
-              <td>{this.props.product.id}</td>
-              <td>{this.props.product.name}</td>
-              <td>{this.props.product.category}</td>
-              <td>{this.props.product.price}</td>
+              <td>{id}</td>
+              <td>{name}</td>
+              <td>{category}</td>
+              <td>{price}</td>
           </tr>
     );
   }

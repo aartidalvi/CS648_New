@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import ProductFilters from './ProductFilters';
 import ProductTable from './ProductTable';
@@ -12,11 +12,12 @@ let PRODUCTS = {
   '5': {id: 50, category: 'Furniture', price: '$1000', name: 'Couch'}
 };
 
-class Product extends React.Component {
+class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        productlist: PRODUCTS
+        productlist: PRODUCTS,
+        filterText: ''
     }
   }
 
@@ -36,7 +37,7 @@ class Product extends React.Component {
           <hr></hr>
           
           <div className="ProductTableDiv">
-          <ProductTable productlist={this.state.productlist}></ProductTable>
+          <ProductTable productlist={this.state.productlist} filterText={this.state.filterText}></ProductTable>
           </div>
 
           <hr></hr>
