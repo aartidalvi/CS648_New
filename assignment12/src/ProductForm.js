@@ -1,29 +1,58 @@
 import React, {Component} from 'react';
 import './App.css';
 
+const RESET_VALUES = {id: '', category: '', price: '', name: ''}
+
 class ProductForm extends Component {
   constructor(props) {
-    super(props)
+    super(props)    
+    this.handleSave = this.handleSave.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    
+    this.state = {
+      product: Object.assign({}, RESET_VALUES), errors: {}
+    } 
   }
   
+  handleSave(e) {
+      this.props.onSave(this.state.product)
+      this.setState({
+          product: Object.assign({}, RESET_VALUES), errors: {}
+      })
+      e.preventDefault(); //Prevent form from triggering HTTP POST
+  }
+
+  handleChange(e) {
+      
+      const target = e.target
+      const propvalue = target.value
+      const name = target.name
+
+      // console.log("Property:" + target.name + ", value:" + target.value)
+
+      this.setState((prevState) => {
+          prevState.product[name] = propvalue
+          return { product: prevState.product }
+      })
+  }
+
   render() {
     return (
       <div className="ProductForm" id="ProductForm">
-          
           <p></p>
           <label>Name</label><br></br>
-          <input type="text" name="NameInput" id="NameInput"></input>
+          <input type="text" className="Input-Text" name="name" id="NameInput" onChange={this.handleChange} value={this.state.product.name}></input>
           
           <p></p>
           <label>Category</label><br></br>
-          <input type="text" name="CategoryInput" id="CategoryInput"></input>
+          <input type="text" name="category" id="CategoryInput" onChange={this.handleChange} value={this.state.product.category} ></input>
           
           <p></p>
           <label>Price</label><br></br>
-          <input type="text" name="PriceInput" id="PriceInput"></input>
+          <input type="text" name="price" id="PriceInput" onChange={this.handleChange} value={this.state.product.price} ></input>
           
           <p></p>
-          <button type="SaveButton" id="SaveButton">Save</button>
+          <button type="Button" id="SaveButton" onClick={this.handleSave}>Save</button>
 
       </div>
     );

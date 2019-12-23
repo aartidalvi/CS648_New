@@ -4,7 +4,7 @@ import ProductFilters from './ProductFilters';
 import ProductTable from './ProductTable';
 import ProductForm from './ProductForm';
 
-//The customsed default list of products
+//The customised default list of products
 let PRODUCTS = {
   '1': {id: 10, category: 'Music', price: '$459.99', name: 'Guitar'},
   '2': {id: 20, category: 'Furniture', price: '$79', name: 'Chair'},
@@ -23,10 +23,24 @@ class Product extends Component {
     }
 
     this.handleFilter = this.handleFilter.bind(this)
+    this.handleSave = this.handleSave.bind(this)
   }
 
   handleFilter(filterInput) {
     this.setState(filterInput)
+  }
+
+  handleSave(product) {
+      // console.log(product);
+      
+      if (!product.id) {
+          product.id = new Date().getTime()
+      }
+      this.setState((prevState) => {
+          let productlist = prevState.productlist
+          productlist[product.id] = product
+          return { productlist }
+      });
   }
 
   render() {
@@ -47,7 +61,7 @@ class Product extends Component {
           </div> <hr></hr>
 
           <div id="ProductFormDiv" className="ProductFormDiv">
-          <ProductForm></ProductForm>
+          <ProductForm onSave={this.handleSave}></ProductForm>
           </div>
       </div>
     );

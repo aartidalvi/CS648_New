@@ -24,6 +24,10 @@ table, th, td {
   text-align: left;
 }
 
+.Input-Text {
+overflow:hidden;
+}
+/*End of custom properties*/
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
