@@ -4,6 +4,7 @@ import ProductFilters from './ProductFilters';
 import ProductTable from './ProductTable';
 import ProductForm from './ProductForm';
 
+//The customsed default list of products
 let PRODUCTS = {
   '1': {id: 10, category: 'Music', price: '$459.99', name: 'Guitar'},
   '2': {id: 20, category: 'Furniture', price: '$79', name: 'Chair'},
@@ -22,27 +23,23 @@ class Product extends Component {
   }
 
   render() {
+    const { productlist, filterText} = this.state;
+
     return (
-      <div className="Product-Align">    
+      <div id="ProductDiv" className="Product-Align">    
           <hr></hr>
-
           <h1>My Inventory (Client)</h1>
-
-          <hr></hr>
-
-          <div className="ProductFilterDiv">
-          <ProductFilters></ProductFilters>
-          </div>
-
           <hr></hr>
           
-          <div className="ProductTableDiv">
-          <ProductTable productlist={this.state.productlist} filterText={this.state.filterText}></ProductTable>
-          </div>
+          <div id="ProductFilterDiv" className="ProductFilterDiv">
+          <ProductFilters></ProductFilters>
+          </div> <hr></hr>
 
-          <hr></hr>
+          <div id="ProductTableDiv" className="ProductTableDiv">
+          <ProductTable productlist={productlist} filterText={filterText}></ProductTable>
+          </div> <hr></hr>
 
-          <div className="ProductFormDiv">
+          <div id="ProductFormDiv" className="ProductFormDiv">
           <ProductForm></ProductForm>
           </div>
       </div>
