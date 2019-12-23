@@ -7,6 +7,7 @@ class ProductTable extends Component {
     super(props)
   }
 
+  //References: Module 12 - 15
   render() {
     var prodlist = this.props.productlist;
     var filterText = this.props.filterText; 

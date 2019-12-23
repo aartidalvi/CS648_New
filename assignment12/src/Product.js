@@ -16,10 +16,17 @@ let PRODUCTS = {
 class Product extends Component {
   constructor(props) {
     super(props)
+    
     this.state = {
         productlist: PRODUCTS,
         filterText: ''
     }
+
+    this.handleFilter = this.handleFilter.bind(this)
+  }
+
+  handleFilter(filterInput) {
+    this.setState(filterInput)
   }
 
   render() {
@@ -32,7 +39,7 @@ class Product extends Component {
           <hr></hr>
           
           <div id="ProductFilterDiv" className="ProductFilterDiv">
-          <ProductFilters></ProductFilters>
+          <ProductFilters onFilter={this.handleFilter}></ProductFilters>
           </div> <hr></hr>
 
           <div id="ProductTableDiv" className="ProductTableDiv">
