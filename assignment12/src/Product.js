@@ -62,19 +62,19 @@ class Product extends Component {
 
     return (
       <div id="ProductDiv" className="Product-Align">    
-          <hr></hr>
           <h1>My Inventory (Client)</h1>
-          <hr></hr>
           
-          <div id="ProductFilterDiv" className="ProductFilterDiv">
+          <div id="ProductFilterDiv">
           <ProductFilters onFilter={this.handleFilter}></ProductFilters>
-          </div> <hr></hr>
+          </div> <br />
 
-          <div id="ProductTableDiv" className="ProductTableDiv">
+          <div id="ProductTableDiv">
           <ProductTable productlist={productlist} filterText={filterText} onDestroy={this.handleDestroy}></ProductTable>
-          </div> <hr></hr>
+          </div>
 
-          <div id="ProductFormDiv" className="ProductFormDiv">
+          <h2>Add a new product</h2>
+
+          <div id="ProductFormDiv">
           <ProductForm onSave={this.handleSave}></ProductForm>
           </div>
       </div>

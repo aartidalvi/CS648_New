@@ -52,7 +52,7 @@ class ProductForm extends Component {
           <input type="text" name="price" id="PriceInput" onChange={this.handleChange} value={this.state.product.price} ></input>
           
           <p></p>
-          <button type="Button" id="SaveButton" onClick={this.handleSave}>Save</button>
+          <button type="Button" id="SaveButton" className="btn btn-primary" onClick={this.handleSave}>Save</button>
 
       </div>
     );

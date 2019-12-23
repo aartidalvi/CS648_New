@@ -20,7 +20,7 @@ class ProductTable extends Component {
 
     return (
       <div className="ProductTable" id="ProductTable">            
-          <table>
+          <table className="table table-bordered table-striped">
           <thead>
               <tr>
                   <th>ID</th> <th>Name</th> <th>Category</th> <th>Price</th> <th></th>

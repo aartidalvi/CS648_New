@@ -7,9 +7,8 @@ class ProductFilters extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
-    const value = e.target.value
-
+  handleChange(event) {
+    const value = event.target.value
     this.props.onFilter({
          filterText: value
     });
@@ -17,8 +16,8 @@ class ProductFilters extends Component {
 
   render() {
     return (
-      <div className="ProductFilters" id="ProductFilters">
-          <input type="search" name="SearchInput" placeholder="Search"  onChange={this.handleChange}></input>
+      <div id="ProductFilters">
+          <input type="search" className="form-control d-inline-flex p-2 bd-highlight" name="SearchInput" placeholder="Search"  onChange={this.handleChange}></input>
       </div>
     );
   }
