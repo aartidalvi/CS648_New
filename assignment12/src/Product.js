@@ -6,11 +6,11 @@ import ProductForm from './ProductForm';
 
 //The customised default list of products
 let PRODUCTS = {
-  '1': {id: 10, category: 'Music', price: '$459.99', name: 'Guitar'},
-  '2': {id: 20, category: 'Furniture', price: '$79', name: 'Chair'},
-  '3': {id: 30, category: 'Hardware', price: '$999', name: 'Laptop'},
-  '4': {id: 40, category: 'Utensils', price: '$100', name: 'Cooking Pans'},
-  '5': {id: 50, category: 'Furniture', price: '$1000', name: 'Couch'}
+  '1': {id: 1, category: 'Music', price: '$459.99', name: 'Guitar'},
+  '2': {id: 2, category: 'Furniture', price: '$79', name: 'Chair'},
+  '3': {id: 3, category: 'Hardware', price: '$999', name: 'Laptop'},
+  '4': {id: 4, category: 'Utensils', price: '$100', name: 'Cooking Pans'},
+  '5': {id: 5, category: 'Furniture', price: '$1000', name: 'Couch'}
 };
 
 class Product extends Component {
@@ -24,6 +24,7 @@ class Product extends Component {
 
     this.handleFilter = this.handleFilter.bind(this)
     this.handleSave = this.handleSave.bind(this)
+    this.handleDestroy = this.handleDestroy.bind(this)
   }
 
   handleFilter(filterInput) {
@@ -31,8 +32,6 @@ class Product extends Component {
   }
 
   handleSave(product) {
-      // console.log(product);
-      
       if (!product.id) {
           product.id = new Date().getTime()
       }
@@ -42,6 +41,21 @@ class Product extends Component {
           return { productlist }
       });
   }
+
+  handleDestroy(productId) {
+    // console.log("Prod Destroy id:" + productId);
+
+    this.setState((prevState) => {
+         let productlist = prevState.productlist
+         //console.log("Before:");
+         //console.log(productlist);
+         delete productlist[productId]
+         //console.log("After:");
+         //console.log(productlist);
+         return { productlist }
+    })
+}
+
 
   render() {
     const { productlist, filterText} = this.state;
@@ -57,7 +71,7 @@ class Product extends Component {
           </div> <hr></hr>
 
           <div id="ProductTableDiv" className="ProductTableDiv">
-          <ProductTable productlist={productlist} filterText={filterText}></ProductTable>
+          <ProductTable productlist={productlist} filterText={filterText} onDestroy={this.handleDestroy}></ProductTable>
           </div> <hr></hr>
 
           <div id="ProductFormDiv" className="ProductFormDiv">

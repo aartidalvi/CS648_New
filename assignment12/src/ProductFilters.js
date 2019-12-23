@@ -9,7 +9,6 @@ class ProductFilters extends Component {
 
   handleChange(e) {
     const value = e.target.value
-    const name = e.target.name
 
     this.props.onFilter({
          filterText: value

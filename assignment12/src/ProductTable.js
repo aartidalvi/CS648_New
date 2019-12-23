@@ -5,6 +5,12 @@ import ProductRow from './ProductRow';
 class ProductTable extends Component {
   constructor(props) {
     super(props)
+    this.handleDestroy = this.handleDestroy.bind(this)
+  }
+
+  handleDestroy(id) {
+    // console.log("Table Destroy id:" + id);
+    this.props.onDestroy(id)
   }
 
   //References: Module 12 - 15
@@ -17,13 +23,17 @@ class ProductTable extends Component {
           <table>
           <thead>
               <tr>
-                  <th>ID</th> <th>Name</th> <th>Category</th> <th>Price</th>
+                  <th>ID</th> <th>Name</th> <th>Category</th> <th>Price</th> <th></th>
               </tr>
           </thead>
           <tbody>
               {Object.keys(prodlist)
                 .filter(prodid => -1 < prodlist[prodid].name.indexOf(filterText))
-                .map(prodid => {return (<ProductRow prodid = {prodlist[prodid].id} product = {prodlist[prodid]} />)}
+                .map(prodid => {return (
+                <ProductRow 
+                  prodid = {prodlist[prodid].id} 
+                  product = {prodlist[prodid]} 
+                  onDestroy={this.handleDestroy}/>)}
               )}
           </tbody>
           </table>
