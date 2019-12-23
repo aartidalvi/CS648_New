@@ -1,19 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class ProductRow extends React.Component {
+  
+  constructor(props) {
+    super(props)
+  }
+
+  
   render() {
     return (
-      <div className="ProductRow" id="ProductRow">
           <tr>
-              <td>ID Dummy</td>
-              <td>Name Dummy</td>
-              <td>Category Dummy</td>
-              <td>Price Dummy</td>
+              <td>{this.props.product.id}</td>
+              <td>{this.props.product.name}</td>
+              <td>{this.props.product.category}</td>
+              <td>{this.props.product.price}</td>
           </tr>
-      </div>
     );
   }
 }
+
 export default ProductRow;

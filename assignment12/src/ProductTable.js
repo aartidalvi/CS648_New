@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProductRow from './ProductRow';
 
 class ProductTable extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
-    let PRODUCTS = {
-      '1': {id: 10, category: 'Music', price: '$459.99', name: 'Clarinet'},
-      '2': {id: 20, category: 'Hardware', price: '$500', name: 'Dell'},
-      '3': {id: 30, category: 'Furniture', price: '$80', name: 'Chair'},
-      '4': {id: 40, category: 'Furniture', price: '$1,300', name: 'Table'},
-  };
-  
+    var prodlist = this.props.productlist;
+
     return (
       <div className="ProductTable" id="ProductTable">            
           <table>
-              <ProductRow></ProductRow>
-              <ProductRow></ProductRow>
+          <thead>
+              <tr>
+                  <th>ID</th> <th>Name</th> <th>Category</th> <th>Price</th>
+              </tr>
+          </thead>
+          <tbody>
+              {Object.keys(prodlist)
+                .map(prodid => {return (<ProductRow prodid = {prodlist[prodid].id} product = {prodlist[prodid]} />)}
+              )}
+          </tbody>
           </table>
       </div>
     );
-  }
+  }  
 }
 
 export default ProductTable;

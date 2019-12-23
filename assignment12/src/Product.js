@@ -1,11 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ProductFilters from './ProductFilters';
 import ProductTable from './ProductTable';
 import ProductForm from './ProductForm';
 
+let PRODUCTS = {
+  '1': {id: 10, category: 'Music', price: '$459.99', name: 'Guitar'},
+  '2': {id: 20, category: 'Furniture', price: '$79', name: 'Chair'},
+  '3': {id: 30, category: 'Hardware', price: '$999', name: 'Laptop'},
+  '4': {id: 40, category: 'Utensils', price: '$100', name: 'Cooking Pans'},
+  '5': {id: 50, category: 'Furniture', price: '$1000', name: 'Couch'}
+};
+
 class Product extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        productlist: PRODUCTS
+    }
+  }
+
   render() {
     return (
       <div className="Product-Align">    
@@ -22,7 +36,7 @@ class Product extends React.Component {
           <hr></hr>
           
           <div className="ProductTableDiv">
-          <ProductTable></ProductTable>
+          <ProductTable productlist={this.state.productlist}></ProductTable>
           </div>
 
           <hr></hr>

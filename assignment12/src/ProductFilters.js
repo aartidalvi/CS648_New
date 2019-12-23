@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class ProductFilters extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <div className="ProductFilters" id="ProductFilters">
