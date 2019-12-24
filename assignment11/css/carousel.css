@@ -91,3 +91,8 @@ body {
     margin-top: 7rem;
   }
 }
+
+
+.bullet-type {
+  list-style-type: circle;
+}
