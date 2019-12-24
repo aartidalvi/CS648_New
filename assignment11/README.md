@@ -1,0 +1,1 @@
+Creating an aesthetically pleasing and usable version of the Vecta Corp. site that relies entirely on Bootstrap.
