@@ -15,6 +15,23 @@ var $ = function(id) {
 
 var employeesTable = $('employeesTable');
 
+function createDeleteButton(employee) {
+    const button = document.createElement('button');
+    const textNode = document.createTextNode('Delete');
+    button.className = 'deleteButton';
+    button.style.alignSelf = 'center';
+    button.appendChild(textNode);
+    button.addEventListener('click', deleteEmployee.bind(this, employee));
+    return button;
+}
+
+function deleteEmployee(employeeToDelete) {
+    employees = employees.filter(employee => {
+        return employee[2] !== employeeToDelete[2]
+    });
+    showRecords();
+}
+
 function createTableCell(value) {
     const cell = document.createElement('td');
     const textNode = document.createTextNode(value);
@@ -35,7 +52,7 @@ function getEmployeeRow(employee) {
     tr.appendChild(createTableCell(employee[0]));
     tr.appendChild(createTableCell(employee[1]));
     tr.appendChild(createTableCell(employee[2]));
-    tr.appendChild(createTableCell('delete'));
+    tr.appendChild(createDeleteButton(employee));
     return tr;
 }
 

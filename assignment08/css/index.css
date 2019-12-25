@@ -11,7 +11,7 @@ input[type=text],input[type=number] {
     border: 1px solid #5DADE2;
 }
 
-input[type=button] {
+.deleteButton, input[type=button] {
     height: 25px;
     font-weight: bold;
     margin-top: 10px;
