@@ -21,8 +21,10 @@ const add = $('addEmpButton');
 const form = $('addEmpForm');
 const count = $('count');
 
+//add event listener to the add employee button
 add.addEventListener("click", validate);
 
+//validate the inputs from the form.
 function validate() {
     let error = false;
     if(name === undefined || name.value == "") {
@@ -45,10 +47,12 @@ function validate() {
     }
 }
 
+//show the current count of employees
 function showCount() {
     count.textContent = 'Showing '+employees.length + ' employees';
 }
 
+//clear the field after adding the employee to the table
 function clearFields() {
     name.value = '';
     title.value = '';
@@ -60,6 +64,7 @@ function clearFields() {
     }
 }
 
+//create the delete button for the new row to be added
 function createDeleteButton(employee) {
     const button = document.createElement('button');
     const textNode = document.createTextNode('Delete');
@@ -70,6 +75,7 @@ function createDeleteButton(employee) {
     return button;
 }
 
+//delete the employee from the list and refresh the data in table
 function deleteEmployee(employeeToDelete) {
     employees = employees.filter(employee => {
         return employee[2] !== employeeToDelete[2]
@@ -78,6 +84,7 @@ function deleteEmployee(employeeToDelete) {
     showCount();
 }
 
+//create a cell of the new row
 function createTableCell(value) {
     const cell = document.createElement('td');
     const textNode = document.createTextNode(value);
@@ -85,6 +92,7 @@ function createTableCell(value) {
     return cell;
 }
 
+//refresh the table data
 function showRecords() {
     const body = employeesTable.children[1];
     body.innerHTML = '';
@@ -93,11 +101,13 @@ function showRecords() {
     });
 }
 
+//add new employee to the list
 function addEmployee() {
     const employee = [name.value, title.value, ext.value];
     employees.push(employee);
 }
 
+//create a row for the new entry from the form
 function getEmployeeRow(employee) {
     const tr = document.createElement('tr');
     tr.appendChild(createTableCell(employee[0]));
