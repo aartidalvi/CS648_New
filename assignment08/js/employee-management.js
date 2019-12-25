@@ -14,6 +14,45 @@ var $ = function(id) {
 };
 
 var employeesTable = $('employeesTable');
+const name = $('nameInput');
+const title = $('titleInput');
+const ext = $('extInput');
+const add = $('addEmpButton');
+const form = $('addEmpForm');
+
+add.addEventListener("click", validate);
+
+function validate() {
+    let error = false;
+    if(name === undefined || name.value == "") {
+        error = true;
+        showValidationError(name, 'Name can not be blank');
+    }
+    if(ext === undefined || ext.value == "" || parseInt(ext.value) < 0) {
+        error = true;
+        showValidationError(ext, 'Extension can not be negative or blank');
+    }
+    if(title === undefined || title.value == "") {
+        error = true;
+        showValidationError(title, 'Title can not be blank');
+    }
+    if (!error) {
+        addEmployee();
+        clearFields();
+        showRecords();
+    }
+}
+
+function clearFields() {
+    name.value = '';
+    title.value = '';
+    ext.value = '';
+    const inputs = document.getElementsByTagName('input');
+    for (input of inputs) {
+        if (input.nextSibling.nextSibling)
+            input.nextSibling.nextSibling.innerHTML = '';
+    }
+}
 
 function createDeleteButton(employee) {
     const button = document.createElement('button');
@@ -45,6 +84,11 @@ function showRecords() {
     employees.map(employee => {
         body.appendChild(getEmployeeRow(employee));
     });
+}
+
+function addEmployee() {
+    const employee = [name.value, title.value, ext.value];
+    employees.push(employee);
 }
 
 function getEmployeeRow(employee) {
