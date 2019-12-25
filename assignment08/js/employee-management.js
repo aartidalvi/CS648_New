@@ -19,6 +19,7 @@ const title = $('titleInput');
 const ext = $('extInput');
 const add = $('addEmpButton');
 const form = $('addEmpForm');
+const count = $('count');
 
 add.addEventListener("click", validate);
 
@@ -40,7 +41,12 @@ function validate() {
         addEmployee();
         clearFields();
         showRecords();
+        showCount() 
     }
+}
+
+function showCount() {
+    count.textContent = 'Showing '+employees.length + ' employees';
 }
 
 function clearFields() {
@@ -69,6 +75,7 @@ function deleteEmployee(employeeToDelete) {
         return employee[2] !== employeeToDelete[2]
     });
     showRecords();
+    showCount();
 }
 
 function createTableCell(value) {
@@ -101,3 +108,4 @@ function getEmployeeRow(employee) {
 }
 
 showRecords();
+showCount();
