@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <title>Assignment 08</title>
     <script src="js/employee-management.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    
+    <h1> The Employee Management Application</h1>
+    <h2><Strong>Add Employee</Strong></h2>
+    <form>
+            <label id="nameLabel">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type='text' id='nameInput'/>
+        <br />
+            <label id="titleLabel">Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type='text' id='titleInput'/>
+        <br />        
+            <!--Not letting user enter invalid input hence reducing the validation efforts-->
+            <label id="extLabel">Extension:&nbsp;</label>
+            <input type='number' id='extInput' min="0"/>
+        <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type='button' id='addEmp' value='Add'/>
+    </form>
 </body>
 </html>

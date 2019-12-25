@@ -1,0 +1,1 @@
+Employee Management application that allows the user to show all employees in a tabular format, add an employee, and delete an employee.
