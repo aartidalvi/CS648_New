@@ -1,1 +1,81 @@
 <!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>JQuery Events</title>
+    <link href='./styles/normalize.css' type='text/css' rel='stylesheet' />
+    <script src='./scripts/jquery-1.11.1.min.js'></script>
+    <script>
+      $(function() {
+        console.log('entered func');
+        
+        /* a function so that user does not have to write window.alert*/
+        function alertMsg(msg) {
+            window.alert(msg);
+        }
+        
+        /*A function to create a button when an ID is provided. */
+        function createButton(button) {
+          $('body').append(`<input type="button" id=\'${button}' value=\'${button}' \>`);
+          $('body').append('<br/><br/>');
+        }
+
+        /* 1. click() to display an alert message when button has been clicked. */
+        createButton('clickTask');
+        $('#clickTask').click(function() {
+            alertMsg('Task1 completed: Clicked a button.');
+        });
+
+        /*2. click event using the .bind() method*/
+        createButton('bindTask');
+        $('#bindTask').bind('click', function() {
+            alertMsg('Task2 completed: Clicked a button using bind.');
+        });
+
+        /*3. click event using the .on() method*/
+        createButton('onTask');
+        $('#onTask').on('click', function() {
+            alertMsg('Task3 completed: Clicked a button using on.');
+        });
+
+        /*4. Single handler using the .on() method for 2 buttons.*/
+        createButton('singleHandler1');
+        createButton('singleHandler2');
+
+        $('#singleHandler1, #singleHandler2').on('click', function() {
+            alertMsg('Task4 completed: Clicked one of single handlers buttons.');
+        });
+
+        /*5. jQuery to add div elements with given attributes and events.*/
+        function addDiv() {
+            const divElement = document.createElement('div');
+            divElement.setAttribute('id', 'div1');
+            $('body').append(divElement);
+            //attributes
+            $('#div1').css({
+                height: '400px',
+                width: '400px',
+                'background-color': 'lightblue'
+            });
+            //events
+            $('#div1').on({
+            mouseenter: enter,
+            mouseleave: leave,
+            click: click
+            });
+        }
+
+        function enter() { alertMsg('Div Mouse Enter'); }
+        function leave() { alertMsg('Div Mouse Exit'); }
+        function click() { alertMsg('Div Mouse Click'); }
+        
+        addDiv();
+    });
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
