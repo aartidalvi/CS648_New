@@ -19,7 +19,7 @@
         /*A function to create a button when an ID is provided. */
         function createButton(button) {
           $('body').append(`<input type="button" id=\'${button}' value=\'${button}' \>`);
-          $('body').append('<br/><br/>');
+          $('body').append('&emsp;&emsp;');
         }
 
         function addButtons() {
@@ -56,7 +56,7 @@
         function addDiv() {
             const divElement = document.createElement('div');
             divElement.setAttribute('id', 'div1');
-            $('body').append(divElement);
+            $('body').append('<br /><br />', divElement);
             //attributes
             $('#div1').css({
                 height: '400px',
@@ -105,12 +105,7 @@
             moduleMedia.setAttribute('href', 'https://www.modulemedia.com');
             moduleMedia.textContent = 'modulemedia';
             
-            $('body').append(
-                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                moduleMedia, '<br />');
+            $('body').append('<br />', moduleMedia, '<br />');
 
             //event
             $('#modulemedia').on('click', event => {
@@ -142,6 +137,22 @@
         }
         resizeUpdate();
 
+        /*9. Textfield with input tag.*/
+        function addTextField() {
+            const textInput = document.createElement('input');
+            textInput.setAttribute('id', 'textfocus');
+            $('body').append(textInput, '<br/>');
+            //events
+            textInput.focusin(function() { setBackgroundColor('#textfocus', 'lightgray'); });
+            textInput.focusout(function() { setBackgroundColor('#textfocus', 'white'); });
+        }
+        
+        function setBackgroundColor(element, color) {
+          $(element).css('background-color', color);
+        }
+
+        addTextField();
+        
     });
     </script>
   </head>
