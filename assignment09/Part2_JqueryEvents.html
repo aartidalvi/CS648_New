@@ -105,7 +105,12 @@
             moduleMedia.setAttribute('href', 'https://www.modulemedia.com');
             moduleMedia.textContent = 'modulemedia';
             
-            $('body').append('<br />', moduleMedia, '<br />');
+            $('body').append(
+                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                moduleMedia, '<br />');
 
             //event
             $('#modulemedia').on('click', event => {
@@ -120,6 +125,23 @@
         }
 
         addLink();
+
+        /*8. When browser resizes, display the width and height of the browser window in div.*/
+        function getWidth(window) { return $(window).width(); }
+        function getHeight(window) { return $(window).height(); }
+
+        function resizeUpdate() {
+            const size = document.createElement('div');
+            size.setAttribute('id', 'size_div');
+            size.innerHTML = `Width : ${getWidth(window)}px &nbsp;&nbsp;&nbsp;  Height : ${getHeight(window)}px`;
+            $('body').append(size, '<br>');
+            //add event
+            $(window).resize(function() {
+                $('#size_div').text(`Width: ${getWidth(window)} Height: ${getHeight(window)}`);
+            });
+        }
+        resizeUpdate();
+
     });
     </script>
   </head>
