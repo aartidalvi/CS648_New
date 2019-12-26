@@ -67,11 +67,31 @@
             });
         }
 
-        function enter() { alertMsg('Div Mouse Enter'); }
-        function leave() { alertMsg('Div Mouse Exit'); }
-        function click() { alertMsg('Div Mouse Click'); }
+        /*6. Span element for the events in #5.*/
+        function addSpan() {
+            let spanArea = document.createElement("span") 
+            spanArea.setAttribute('id','divSpan')
+            spanArea.textContent = ""
+            $('body').append(spanArea);
+        }
+        
+        function enter() { 
+            document.getElementById("divSpan").textContent = "Span for Enter Div Event";
+            alertMsg('Div Mouse Enter'); 
+        }
+        
+        function leave() { 
+            document.getElementById("divSpan").textContent = "Span for Exit Div Event";
+            alertMsg('Div Mouse Exit'); 
+        }
+        
+        function click() { 
+            document.getElementById("divSpan").textContent = "Span for MouseClick Div Event";
+            alertMsg('Div Mouse Click'); 
+        }
         
         addDiv();
+        addSpan();
     });
     </script>
   </head>
