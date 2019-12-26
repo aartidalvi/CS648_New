@@ -22,31 +22,35 @@
           $('body').append('<br/><br/>');
         }
 
-        /* 1. click() to display an alert message when button has been clicked. */
-        createButton('clickTask');
-        $('#clickTask').click(function() {
-            alertMsg('Task1 completed: Clicked a button.');
-        });
+        function addButtons() {
+            /* 1. click() to display an alert message when button has been clicked. */
+            createButton('clickTask');
+            $('#clickTask').click(function() {
+                alertMsg('Task1 completed: Clicked a button.');
+            });
 
-        /*2. click event using the .bind() method*/
-        createButton('bindTask');
-        $('#bindTask').bind('click', function() {
-            alertMsg('Task2 completed: Clicked a button using bind.');
-        });
+            /*2. click event using the .bind() method*/
+            createButton('bindTask');
+            $('#bindTask').bind('click', function() {
+                alertMsg('Task2 completed: Clicked a button using bind.');
+            });
 
-        /*3. click event using the .on() method*/
-        createButton('onTask');
-        $('#onTask').on('click', function() {
-            alertMsg('Task3 completed: Clicked a button using on.');
-        });
+            /*3. click event using the .on() method*/
+            createButton('onTask');
+            $('#onTask').on('click', function() {
+                alertMsg('Task3 completed: Clicked a button using on.');
+            });
 
-        /*4. Single handler using the .on() method for 2 buttons.*/
-        createButton('singleHandler1');
-        createButton('singleHandler2');
+            /*4. Single handler using the .on() method for 2 buttons.*/
+            createButton('singleHandler1');
+            createButton('singleHandler2');
 
-        $('#singleHandler1, #singleHandler2').on('click', function() {
-            alertMsg('Task4 completed: Clicked one of single handlers buttons.');
-        });
+            $('#singleHandler1, #singleHandler2').on('click', function() {
+                alertMsg('Task4 completed: Clicked one of single handlers buttons.');
+            });
+        }
+
+        addButtons();
 
         /*5. jQuery to add div elements with given attributes and events.*/
         function addDiv() {
@@ -92,6 +96,30 @@
         
         addDiv();
         addSpan();
+
+
+        /*7. A link within the web page with custom attributes*/
+        function addLink() {
+            const moduleMedia = document.createElement('a');
+            moduleMedia.setAttribute('id', 'modulemedia');
+            moduleMedia.setAttribute('href', 'https://www.modulemedia.com');
+            moduleMedia.textContent = 'modulemedia';
+            
+            $('body').append('<br />', moduleMedia, '<br />');
+
+            //event
+            $('#modulemedia').on('click', event => {
+                event.preventDefault();
+                setColor('#modulemedia', 'red');
+                alertMsg(event.target);
+            });    
+        }
+
+        function setColor(element, color) {
+          $(element).css('color', color);
+        }
+
+        addLink();
     });
     </script>
   </head>
