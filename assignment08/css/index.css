@@ -58,3 +58,7 @@ thead  tr {
     color: white;
     font-weight: bold;
 }
+
+.errorSpan {
+    color: red;
+}

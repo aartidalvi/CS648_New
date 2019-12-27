@@ -11,13 +11,16 @@
     <form id="addEmpForm">
             <label id="nameLabel">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type='text' id='nameInput'/>
+            <span id='nameInputSpan' class='errorSpan'></span>
         <br />
             <label id="titleLabel">Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type='text' id='titleInput'/>
+            <span id='titleInputSpan' class='errorSpan'></span>
         <br />        
             <!--Not letting user enter invalid input hence reducing the validation efforts-->
             <label id="extLabel">Extension:&nbsp;</label>
             <input type='number' id='extInput' min="0"/>
+            <span id='extInputSpan' class='errorSpan'></span>
         <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

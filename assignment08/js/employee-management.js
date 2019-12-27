@@ -1,5 +1,3 @@
-/*eslint-env browser*/
-
 /* Initial 5 entries that are shown on page load */
 var employees = [
     ['Aarti', 'Intern', 432],
@@ -47,9 +45,16 @@ function validate() {
     }
 }
 
+//Show validation error to the specific span elements
+function showValidationError(element, msg) {
+    const spanID = element.id+'Span';
+    const spanNode = document.getElementById(spanID);
+    spanNode.innerHTML = msg;
+}
+
 //show the current count of employees
 function showCount() {
-    count.textContent = 'Showing '+employees.length + ' employees';
+    count.textContent = 'Showing '+ employees.length + ' employees';
 }
 
 //clear the field after adding the employee to the table
@@ -67,10 +72,10 @@ function clearFields() {
 //create the delete button for the new row to be added
 function createDeleteButton(employee) {
     const button = document.createElement('button');
-    const textNode = document.createTextNode('Delete');
+    const deleteNode = document.createTextNode('Delete');
     button.className = 'deleteButton';
     button.style.alignSelf = 'center';
-    button.appendChild(textNode);
+    button.appendChild(deleteNode);
     button.addEventListener('click', deleteEmployee.bind(this, employee));
     return button;
 }
