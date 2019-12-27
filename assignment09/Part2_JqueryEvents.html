@@ -9,8 +9,21 @@
     <script src='./scripts/jquery-1.11.1.min.js'></script>
     <script>
       $(function() {
-        console.log('entered func');
+        console.log('entered script');
         
+        addElements();
+
+        /*A parent function to add the required elements to the body*/
+        function addElements() {
+            addButtons();
+            addDiv();
+            addSpan();
+            addLink();
+            resizeUpdate();
+            addTextField();        
+            addFormField();
+        }
+
         /* a function so that user does not have to write window.alert*/
         function alertMsg(msg) {
             window.alert(msg);
@@ -49,8 +62,6 @@
                 alertMsg('Task4 completed: Clicked one of single handlers buttons.');
             });
         }
-
-        addButtons();
 
         /*5. jQuery to add div elements with given attributes and events.*/
         function addDiv() {
@@ -92,11 +103,7 @@
         function click() { 
             document.getElementById("divSpan").textContent = "Span for MouseClick Div Event";
             alertMsg('Div Mouse Click'); 
-        }
-        
-        addDiv();
-        addSpan();
-
+        }  
 
         /*7. A link within the web page with custom attributes*/
         function addLink() {
@@ -119,8 +126,6 @@
           $(element).css('color', color);
         }
 
-        addLink();
-
         /*8. When browser resizes, display the width and height of the browser window in div.*/
         function getWidth(window) { return $(window).width(); }
         function getHeight(window) { return $(window).height(); }
@@ -135,7 +140,6 @@
                 $('#size_div').text(`Width: ${getWidth(window)} Height: ${getHeight(window)}`);
             });
         }
-        resizeUpdate();
 
         /*9. Textfield with input tag.*/
         function addTextField() {
@@ -151,7 +155,6 @@
           $(element).css('background-color', color);
         }
 
-        addTextField();
 
         /*10. Form field with validations and events.*/
         function setBorderColor(inputField, color) {
@@ -205,9 +208,7 @@
                     setBorderColor('#emailInput', 'green');
                 }
             });
-        }
-        
-        addFormField();        
+        }        
     });
     </script>
   </head>
