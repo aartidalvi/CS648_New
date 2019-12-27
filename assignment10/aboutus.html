@@ -11,6 +11,8 @@
 	<!-- Added UI jquery for tooltip-->
 	<script src = "https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> 
 	<script src="./js/jquery.mobilemenu.js"></script>
+	<!-- Reference: http://jquery.malsup.com/cycle2/download/-->
+	<script src="./js/jquery.cycle2.js"></script>
 	<script>
 		/*Reference: https://www.tutorialspoint.com/jqueryui/jqueryui_tooltip.htm*/
 		/*1: General, add tooltip to all navigation menu item.*/
@@ -119,9 +121,22 @@
 		</div>
 		
 		<div id="HQ">
-			<BR />
             <h4>Our New Headquarters</h4>
-            
+            <div class="cycle-slideshow" 
+				data-cycle-fx=scrollHorz
+				data-cycle-prev=".prev"
+				data-cycle-next=".next"
+				data-cycle-loader="wait">
+				<img src="images/building_01.jpg">
+				<img src="images/building_02.jpg">
+				<img src="images/building_03.jpg">
+				<img src="images/building_04.jpg">
+				<img src="images/building_05.jpg">
+			</div>
+			<div>
+				<button class="prev">Prev</button>     <button class="next">Next</button>
+				<BR /><BR />
+			</div>
 		</div>
         </section>
 		
