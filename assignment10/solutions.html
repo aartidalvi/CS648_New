@@ -7,10 +7,10 @@
 	<link rel="stylesheet" href="./css/base.css">
 	<link rel="stylesheet" href="./css/skeleton.css">
 	<link rel="stylesheet" href="./css/layout.css">
-	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<!-- Added UI jquery for tooltip-->
-	<script src = "https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> 
-	<script src="./js/jquery.mobilemenu.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
 	<script src="./js/jquery.sticky.js"></script>
 	<script>
 		/*Reference: https://www.tutorialspoint.com/jqueryui/jqueryui_tooltip.htm*/
@@ -20,11 +20,13 @@
 			$(document).tooltip();
 			$("#sticky").sticky({topSpacing:0});
 			$("#acc").accordion();
+			$("#acc2").accordion();
 		});
+
 	</script>
 </head>
 <body>
-	<main class="container">
+	<main class="container" id="top">
 		<figure class="three columns">
 			<img src="images/logo.gif" class="scale-with-grid" alt="">
 		</figure>
@@ -86,6 +88,14 @@
 						<div><a href="#c">vConvert 2.0</a></div>
 						<div><a href="#r">vRetain 1.0</a></div>
 					</div>
+				</div>
+				<div id="acc2">
+					<h5>Navigate</h5>
+					<div>
+						<div><a href="#top">Back to top</a></div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
 </body>
