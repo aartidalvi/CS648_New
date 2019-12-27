@@ -12,15 +12,15 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/jquery.mobilemenu.js"></script>
 	<script>
-		$(document).ready(function(){
-			$('#responsive-menu').mobileMenu();
-		});
+		
 		/*Reference: https://www.tutorialspoint.com/jqueryui/jqueryui_tooltip.htm*/
 		/*1: General, add tooltip to all navigation menu item.*/
-		$(function() {
+		$(document).ready(function(){
+			$('#responsive-menu').mobileMenu();
 			$(document).tooltip();
-         });
+		});
 	</script>
+
 </head>
 <body>
 	<main class="container">
