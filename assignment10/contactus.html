@@ -20,6 +20,15 @@
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
 		});
+		/*Reference: https://www.tutorialspoint.com/jqueryui/jqueryui_tooltip.htm*/
+		/*1: General, add tooltip to all navigation menu item.*/
+		$(function() {
+			$("#homeLink").tooltip();
+			$("#aboutUsLink").tooltip();
+			$("#solutionsLink").tooltip();
+			$("#supportLink").tooltip();
+			$("#contactUsLink").tooltip();
+         });
 	</script>
 </head>
 <body>
@@ -30,11 +39,11 @@
 		
 		<nav class="thirteen columns">
 			<ul id="responsive-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="aboutus.html">About Us</a></li>
-				<li><a href="solutions.html">Solutions</a></li>
-				<li><a href="support.html">Support</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
+				<li><a href="index.html" id="homeLink" title="Home page of the website">Home</a></li>
+				<li><a href="aboutus.html" id="aboutUsLink" title="Know about the team and opportunities">About Us</a></li>
+				<li><a href="solutions.html" id="solutionsLink" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers.">Solutions</a></li>
+				<li><a href="support.html" id="supportLink" title="Need support? Click here.">Support</a></li>
+				<li><a href="contactus.html" id="contactUsLink" title="Fill form to talk to one of our representatives.">Contact Us</a></li>
 			</ul>
 		</nav>
 		

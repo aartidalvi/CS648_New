@@ -4,20 +4,26 @@
 	<meta charset="utf-8">
 	<title>Welcome to Vecta Corp.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/skeleton.css">
-	<link rel="stylesheet" href="css/layout.css">
-
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="js/jquery.mobilemenu.js"></script>
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/skeleton.css">
+	<link rel="stylesheet" href="./css/layout.css">
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!-- Added UI jquery for tooltip-->
+	<script src = "https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> 
+	<script src="./js/jquery.mobilemenu.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
 		});
+		/*Reference: https://www.tutorialspoint.com/jqueryui/jqueryui_tooltip.htm*/
+		/*1: General, add tooltip to all navigation menu item.*/
+		$(function() {
+			$("#homeLink").tooltip();
+			$("#aboutUsLink").tooltip();
+			$("#solutionsLink").tooltip();
+			$("#supportLink").tooltip();
+			$("#contactUsLink").tooltip();
+         });
 	</script>
 </head>
 <body>
@@ -28,11 +34,11 @@
 		
 		<nav class="thirteen columns">
 			<ul id="responsive-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="aboutus.html">About Us</a></li>
-				<li><a href="solutions.html">Solutions</a></li>
-				<li><a href="support.html">Support</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
+				<li><a href="index.html" id="homeLink" title="Home page of the website">Home</a></li>
+				<li><a href="aboutus.html" id="aboutUsLink" title="Know about the team and opportunities">About Us</a></li>
+				<li><a href="solutions.html" id="solutionsLink" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers.">Solutions</a></li>
+				<li><a href="support.html" id="supportLink" title="Need support? Click here.">Support</a></li>
+				<li><a href="contactus.html" id="contactUsLink" title="Fill form to talk to one of our representatives.">Contact Us</a></li>
 			</ul>
 		</nav>
 		
