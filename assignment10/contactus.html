@@ -21,10 +21,11 @@
 			$( ".input-checkboxradio" ).checkboxradio();
 			$( "#companysize" ).selectmenu();
 		});
+
 		$( function() {
-			$( ".input-button" ).button();
+			$( ".widget input[type=submit]" ).button();
 			$( "input" ).click( function( event ) {
-				event.preventDefault();
+			event.preventDefault();
 			} );
 		} );
 	</script>
@@ -98,9 +99,7 @@
 			    Questions or comments for our sales representatives?
 				<textarea name="questions" size="30" rows="5"></textarea>
 				
-				
-					<input type="submit" class="input-button" name="submit" value="Submit Now">
-				
+				<input type="submit" name="submit" value="Submit Now">
 
 			</fieldset>
 			</form></div>
