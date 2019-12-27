@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Vecta Corp.</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -34,8 +34,7 @@
     <link href="./css/carousel.css" rel="stylesheet">
 </head>
 <body>
-    
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark rounded mt-3 text-right">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark rounded mt-3 text-right w-90 horizontal-center">
           <a class="navbar-brand" href="#"><img src="./images/logo.png" class="img-fluid rounded"></a>
           <!--Reference: https://www.codeply.com/go/qhaBrcWp3v
             https://stackoverflow.com/questions/34749174/how-to-add-gap-between-list-items-in-bootstrap-grid 
@@ -184,45 +183,46 @@
                         aria-labelledby="rTab">
                         Build on existing customer relationships to improve productivity and maximize customer loyalty, while growing revenues.</div>
               </div>
-              <!--
-              <p><strong>vProspect 2.0</strong><br>
-                    Define and research your target audience, define your strategy to reach that audience and present a strong and memorable brand to that audience.
-              </p>
-              <p><strong>vConvert 2.0</strong><br>
-                    Create a highly user-friendly and easy-to-navigate information architecture that will help your prospects interact with the company on a highly interactive level.
-              </p>
-              <p><strong>vRetain 1.0</strong><br>
-                    Build on existing customer relationships to improve productivity and maximize customer loyalty, while growing revenues.
-              </p>-->
-            </div><!-- /.col-lg-4 -->
+            </div>
             <div class="col-md-4 row">
               <h2>Client Testimonials</h2>
-              <!--Reference: https://stackoverflow.com/questions/27689927/how-to-give-spacing-between-buttons-using-bootstrap -->
-              <p><a class="btn btn-primary float-left btn-space" href="#" role="button">Aaron D. Tyres</a></p>
-              <p><a class="btn btn-primary float-right btn-space" href="#" role="button">Robin Banks</a></p>
-                  
+              <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#aaron" aria-expanded="false" aria-controls="aaron">
+                  Aaron D. Tyres
+                </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#robin" aria-expanded="false" aria-controls="robin">
+                  Robin Banks
+                </button>
+              </p>
+              
+              <!--Reference: https://stackoverflow.com/questions/27689927/how-to-give-spacing-between-buttons-using-bootstrap 
+              https://getbootstrap.com/docs/4.0/components/collapse/
+              -->
+              <div id="aaron" class="collapse card card-body">
                 <p>Throughout the years we have worked with Vecta Corporation, we have always been amazed at the level of dedication and professionalism that they have provided us and our WGDC products. It is this commitment that has increased both our income and exposure exponentially.</p>
-
                 <p>
                 Aaron D. Tyres <br>
                 <abbr title="Chief Executive Officer">CEO</abbr><br>
                 American Rubber, Inc.<br>
                 </p>
-                
+              </div> 
+              <div id="robin" class="collapse card card-body">
                 <p>Incredible results from an incredible effort by the Vecta Corporation team! We are very pleased with the business benefits we have rceived by working with them.</p>
-
                 <p>
                 Robin Banks<br>
-                <abbr title="Chief Technical Officer">CTO</abbr><br>
+                <abbr title="Chief Technology Officer">CTO</abbr><br>
                 Profits Financial, LLC.<br>
                 </p>
+              </div> 
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
 
+        <hr/>
         <!-- FOOTER -->
         <footer class="container">
-          <p class="text-center">Copyright &copy; 2015 VectaCorporation</p>
+          <p class="text-center">||Footer Text|| Copyright &copy; 2015 VectaCorporation</p>
         </footer>
 </body>
+
 </html>
