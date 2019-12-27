@@ -17,7 +17,7 @@ class ProductFilters extends Component {
   render() {
     return (
       <div id="ProductFilters">
-          <input type="search" className="form-control d-inline-flex p-2 bd-highlight" name="SearchInput" placeholder="Search"  onChange={this.handleChange}></input>
+          <input type="search" className="form-control" name="SearchInput" placeholder="Search Product"  onChange={this.handleChange}></input>
       </div>
     );
   }

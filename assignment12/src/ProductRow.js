@@ -8,11 +8,13 @@ class ProductRow extends Component {
     this.destroy = this.destroy.bind(this)
   }
 
+  /* Delete */
   destroy() {
     // console.log("Row Destroy id:" + this.props.product.id);
     this.props.onDestroy(this.props.product.id);
   }
 
+  /* Render a row. */
   render() {
     //Reference Module 12, Lecture 11
     const {id, name, category, price} = this.props.product;

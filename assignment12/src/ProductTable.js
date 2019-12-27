@@ -14,6 +14,7 @@ class ProductTable extends Component {
   }
 
   //References: Module 12 - 15
+  //Render complete table with products.
   render() {
     var prodlist = this.props.productlist;
     var filterText = this.props.filterText; 

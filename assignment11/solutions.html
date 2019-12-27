@@ -15,6 +15,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <style>
+        #second-div { 
+          position:relative; 
+          height: 400px;
+          overflow-y: scroll;
+        }
         .bd-placeholder-img {
           font-size: 1.125rem;
           text-anchor: middle;
@@ -34,6 +39,7 @@
     <link href="./css/carousel.css" rel="stylesheet">
 </head>
 <body>
+  <div id="first-div">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark rounded mt-3 text-right w-90 horizontal-center">
           <a class="navbar-brand" href="#"><img src="./images/logo.png" class="img-fluid rounded"></a>
           <!--Reference: https://www.codeply.com/go/qhaBrcWp3v
@@ -140,10 +146,12 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+      </div>
+      <div id="second-div" data-spy="scroll" data-target="#mySticky" data-offset="100">
         <div class="row">
           <div class="col-8">
               <h4 class="text-center">Solutions</h4>
-              <div data-spy="scroll" data-target="#mySticky" data-offset="100">
+              <div >
                   <strong id="p">vProspect 2.0</strong>
                   <ul>
                       <li>Define and research your target audience, define your strategy to reach that audience and present a strong and memorable brand to that audience. vProspect can help your business:</li>
@@ -179,8 +187,8 @@
           </div>
           <div class="col-4">
               <h3>Quick Nav</h3>
-              <nav class="navbar" id="mySticky">
-                  <nav class="nav-pills flex-column">
+              <nav class="navbar sticky-top" id="mySticky">
+                  <nav class="nav-pills nav-stacked flex-column">
                       <a class="nav-link active" href="#p">vProspect 2.0</a>
                       <a class="nav-link" href="#c">vConvert 2.0</a>
                       <a class="nav-link" href="#r">vRetain 1.0</a>					
@@ -189,6 +197,7 @@
           </div>
   
       </div>
+    </div>
 
         <hr/>
         <!-- FOOTER -->
