@@ -122,6 +122,7 @@
             });    
         }
 
+        /*Utility method to set color of input element.*/
         function setColor(element, color) {
           $(element).css('color', color);
         }
@@ -151,17 +152,20 @@
             $('#textfocus').focusout(function() { setBackgroundColor('#textfocus', 'white'); });
         }
         
+        /*Utility method to set background color of input*/
         function setBackgroundColor(element, color) {
           $(element).css('background-color', color);
         }
 
 
         /*10. Form field with validations and events.*/
+        /*Utility method to set border color of input*/
         function setBorderColor(inputField, color) {
             $(inputField).css({border: '1px solid ' + color});
         }
 
         /*Reference: https://stackoverflow.com/questions/9053983/alert-id-of-current-element*/
+        /*Utility method to validate text input*/
         function validateInput(inputField) {
             if ($(inputField).val() === undefined || $(inputField).val() === '') {
                     setBorderColor(inputField, 'red');
