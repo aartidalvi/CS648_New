@@ -143,8 +143,8 @@
             textInput.setAttribute('id', 'textfocus');
             $('body').append(textInput, '<br/>');
             //events
-            textInput.focusin(function() { setBackgroundColor('#textfocus', 'lightgray'); });
-            textInput.focusout(function() { setBackgroundColor('#textfocus', 'white'); });
+            $('#textfocus').focusin(function() { setBackgroundColor('#textfocus', 'lightgray'); });
+            $('#textfocus').focusout(function() { setBackgroundColor('#textfocus', 'white'); });
         }
         
         function setBackgroundColor(element, color) {
@@ -152,7 +152,62 @@
         }
 
         addTextField();
+
+        /*10. Form field with validations and events.*/
+        function setBorderColor(inputField, color) {
+            $(inputField).css({border: '1px solid ' + color});
+        }
+
+        /*Reference: https://stackoverflow.com/questions/9053983/alert-id-of-current-element*/
+        function validateInput(inputField) {
+            if ($(inputField).val() === undefined || $(inputField).val() === '') {
+                    setBorderColor(inputField, 'red');
+                    alertMsg( $(inputField).attr('id') + ' can not be blank');
+                    return false;
+                }
+            return true;
+        }
+
+        function addFormField() {
+            const form = document.createElement('form');
+            form.setAttribute('id', 'formElement');
+
+            $('body').append(`<hr/>`);
+            $('body').append(`<label id="nameLabel">NAME:</label>&emsp;&emsp;&emsp;&emsp;`);
+            const nameInput = document.createElement('input');
+            nameInput.setAttribute('id', 'nameInput');
+
+            $('body').append(`&emsp;&emsp;&emsp;&emsp;&emsp;<label id="emailLabel">EMAIL ID:</label>`);
+            const emailInput = document.createElement('input');
+            emailInput.setAttribute('id', 'emailInput');
+
+            const submit = document.createElement('button');
+            submit.setAttribute('id', 'submitButton');
+            submit.type = 'submit';
+            submit.textContent = 'Save';
+
+            const linebreak = document.createElement('br');
+
+            form.appendChild(nameInput);    form.appendChild(linebreak);
+            form.appendChild(emailInput);   form.appendChild(linebreak);
+            form.appendChild(submit);
         
+            $('body').append(form, '<br/>');
+
+            $('#formElement').on('submit', function(event) {
+                
+                event.preventDefault();
+                setBorderColor('#nameInput', 'grey');
+                setBorderColor('#emailInput', 'grey');
+
+                if(validateInput('#nameInput') && validateInput('#emailInput')) {
+                    setBorderColor('#nameInput', 'green');
+                    setBorderColor('#emailInput', 'green');
+                }
+            });
+        }
+        
+        addFormField();        
     });
     </script>
   </head>
