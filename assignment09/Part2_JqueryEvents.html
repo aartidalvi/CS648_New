@@ -32,7 +32,7 @@
         /*A function to create a button when an ID is provided. */
         function createButton(button) {
           $('body').append(`<input type="button" id=\'${button}' value=\'${button}' \>`);
-          $('body').append('&emsp;&emsp;');
+          $('body').append('&emsp;&emsp;&emsp;');
         }
 
         function addButtons() {
@@ -76,9 +76,9 @@
             });
             //events
             $('#div1').on({
-            mouseenter: enter,
-            mouseleave: leave,
-            click: click
+                mouseenter: enter,
+                mouseleave: leave,
+                click: click
             });
         }
 
@@ -212,7 +212,5 @@
     });
     </script>
   </head>
-  <body>
-    
-  </body>
+  <body></body>
 </html>
