@@ -16,6 +16,7 @@ class ProductTable extends Component {
         this.props.onUpdate(id)
     }
 
+    /* Render the Product Table with all the products in cluster */
     render () {
         let productsArray = Object.keys(this.props.products).map((pid) => this.props.products[pid])
         let rows = []

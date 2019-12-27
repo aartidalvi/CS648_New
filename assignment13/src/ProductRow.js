@@ -15,6 +15,7 @@ class ProductRow extends Component {
         this.props.onUpdate(this.props.product.productid);
     }
 
+    /* Render a table row for one product */
     render () {
         return (
             <tr>

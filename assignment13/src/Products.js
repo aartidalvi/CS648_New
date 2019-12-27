@@ -33,6 +33,7 @@ class Products extends Component {
         this.getReq();
     }
 
+    //function to send the get request to get a list of all the products.
     getReq() {
         var temp = {};
         $.ajax({
@@ -74,6 +75,7 @@ class Products extends Component {
         })
     }
 
+    /* Handle the save button to generate unique ID and send post request */
     handleSave(product) {
         if (!product.productid) {
             product.productid = new Date().getTime()
@@ -81,6 +83,7 @@ class Products extends Component {
         return this.postReq(product)
     }
 
+    /* Send delete request to the server to handle delete button. */
     handleDestroy(productid){
         console.log('Prod ID to be deleted: '+ productid);
 

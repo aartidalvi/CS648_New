@@ -37,6 +37,7 @@ var Datamodel = mongoose.model('datamodel', {
     instock: Boolean
 } )
 
+/* GET : to get all the entries in the cluster */
 app.get('/product/get', (request,response) => {
     Datamodel.find( {}, (error, productlist) => {
         if(error) {
@@ -47,6 +48,7 @@ app.get('/product/get', (request,response) => {
     })
 })
 
+/* DELETE : to delete particular product with given id in the cluster */
 app.delete('/product/delete/:productid', (request, response) => {
     
     console.log('Product to be deleted:' + request.params.productid);
@@ -62,23 +64,23 @@ app.delete('/product/delete/:productid', (request, response) => {
     })
   })
 
-  
-//The code will toggle the instock of the product.
+/*PUT : to update particular product with given id in the cluster.
+For now this method will toggle the instock of the product.*/
 app.put('/product/update/:productid', (request, response) => {
     
     console.log('Product to be updated server:' + request.params.productid);
 
     var found = Datamodel.findOne({ productid: request.params.productid },function(err,obj) {
-        console.log('found one') 
-        console.log(obj);      
-        obj.instock = !obj.instock; //toggle the value of instock
-        obj.save();
-        response.sendStatus(200);
+            console.log('found one') 
+            console.log(obj);      
+            obj.instock = !obj.instock; //toggle the value of instock
+            obj.save();
+            response.sendStatus(200);
         })
 })
 
+/* POST: to create a new product in the cluster */
 app.post('/product/create', (request, response) => {
-    // console.log(request.body);
     var data = new Datamodel({productid: request.body.productid,
         category: request.body.category,
         price: request.body.price,
@@ -94,11 +96,9 @@ app.post('/product/create', (request, response) => {
             response.sendStatus(200);
         }
     })
-
-    // console.log(data);
-
 })
 
+/* Connect to the mongoDB cluster */
 mongoose.connect (mongoDBpath, { 
     useUnifiedTopology: true , 
     useNewUrlParser: true } ,(error) => {

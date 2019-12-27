@@ -36,6 +36,7 @@ class ProductForm extends Component {
         e.preventDefault()
     }
 
+    /* Render the form to enter attributes of new product. */
     render () {
         return (
             <form>
